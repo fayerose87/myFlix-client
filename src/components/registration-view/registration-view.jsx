@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import propTypes from 'prop-types';
 
 export function RegistrationView(props) {

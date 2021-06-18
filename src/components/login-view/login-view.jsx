@@ -1,14 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 
 export function LoginView(props) {
   const [ username, setUsername ] = useState('');
-  const [ password, setPassword ] = useState('')
+  const [ password, setPassword ] = useState('');
 
   const handleSubmit = () => {
     e.preventDefault();
     console.log(username, password);
-    /* Send a request to the servcer for authentication */
+    /* Send a request to the server for authentication */
     /* then call props.onLoggedIn(username) */
     props.onLoggedIn(username);
   };
@@ -27,7 +26,3 @@ export function LoginView(props) {
     </form>
   );
 }
-
-LoginView.propTypes = {
-  user: propTypes.func.isRequired
-};
