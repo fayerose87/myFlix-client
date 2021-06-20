@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 export function RegistrationView(props) {
   const [ username, setUsername ] = useState('');
@@ -7,7 +7,7 @@ export function RegistrationView(props) {
   const [ email, setEmail ] = useState('')
   const [ birthday, setBirthday ] = useState('')
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     console.log(username, password, email, birthday);
     /* Send a request to the servcer for authentication */
@@ -37,7 +37,3 @@ export function RegistrationView(props) {
     </form>
   );
 }
-
-RegistrationView.propTypes = {
-  onRegister: propTypes.func.isRequired
-};
