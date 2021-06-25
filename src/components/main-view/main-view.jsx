@@ -6,6 +6,11 @@ import { RegistrationView} from '../registration-view/registration-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 
+//Bootstrap Elements
+import { Navbar, Nav, Row, Col, Form, FormControl, Button, Container } from 'react-bootstrap'
+
+import './main-view.scss';
+import Logo from 'url:~/src/images/myFlix.png';
 
 export class MainView extends React.Component {
 
@@ -66,15 +71,38 @@ export class MainView extends React.Component {
     if (movies.length === 0) return <div className="main-view" />;
 
     return (
-      <div className="main-view">
-        {/*If the state of `selectedMovie` is not null, that selected movie will be returned otherwise, all *movies will be returned*/}
-        {selectedMovie
-          ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
-          : movies.map(movie => (
-            <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }}/>
-         ))
-        }
-      </div>
+      <div>
+        <Row>
+          <Col>
+            <Navbar variant="dark">
+            <Navbar.Brand href="">
+             <img src={Logo} className="d-inline-block align-top" height="100px" width="auto" alt="myFlix logo"/>
+            </Navbar.Brand>
+            <Nav className="me-auto">
+             <Nav.Link href="">Home</Nav.Link>
+             <Nav.Link href="">My Account</Nav.Link>
+              <Nav.Link href="">Logout</Nav.Link>
+            </Nav>
+            </Navbar>
+          </Col>
+        </Row>
+        
+        <Row className="main-view justify-content-md-center">
+         {selectedMovie
+          ? (
+            <Col md={8}>
+             <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+           </Col>
+            )
+            : movies.map(movie => (
+              <Col md={3}>
+                <MovieCard key={movie._id} movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
+              </Col>
+            ))
+          }
+        </Row>
+      );
+     </div>
     );
   }
 }

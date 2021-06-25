@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+//Bootstrap Elements
+import { Navbar, Nav, Row, Col, Form, FormControl, Button, Container } from 'react-bootstrap'
+
+import './login-view.scss';
+import Logo from 'url:~/src/images/myFlix.png';
+
 export function LoginView(props) {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
@@ -14,16 +20,30 @@ export function LoginView(props) {
   };
 
   return (
-    <form>
-      <label>
-        Username:
-        <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
-      </label>
-      <label>
-        Password:
-        <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
-      </label>
-      <button type="submit" onClick={handleSubmit}>Submit</button>
-    </form>
+    <div>
+    <div className="header">
+      <img src={Logo} className="d-inline-block align-top m-auto" height="100px" width="auto" alt="myFlix logo"/>
+    </div>
+
+       <div className="Login">
+        <Form>
+          <h2>Sign In</h2>
+          <div className="form-group">
+             <Form.Group className="mb-3" controlId="formUsername">
+               <Form.Label>Username:</Form.Label>
+               <Form.Control type="text" placeholder="Username" onChange={e => setUsername(e.target.value)} />
+              </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formPassword">
+              <Form.Label>Password:</Form.Label>
+              <Form.Control type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
+            </Form.Group>
+            <Button variant="primary" type="submit" onClick={handleSubmit}>
+            Submit
+            </Button>
+          </div>
+        </Form>
+      </div>
+    </div>
   );
 }
