@@ -1,5 +1,25 @@
-$color: steelblue;
+:root {
+  --primary-color: #1e81b0;
+  --secondary-color: #474848;
+  --black: #000;
+}
 
-.my-flix {
-  color: $color;
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body, html {
+  background-image: linear-gradient(var(--black), var(--secondary-color));
+  height: 100%;
+}
+
+
+.form-label {
+  color: #FFF;
+}
+
+.btn {
+  background-color: var(--primary-color) !important;
+  border: none !important;
 }
