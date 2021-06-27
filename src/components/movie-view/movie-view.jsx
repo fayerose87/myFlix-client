@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Button from 'react-bootstrap/Button';
+//Bootstrap Elements
+import { Navbar, Nav, Row, Col, Form, FormControl, Button, Container, Card } from 'react-bootstrap'
 
 import './movie-view.scss';
 
@@ -11,29 +12,37 @@ export class MovieView extends React.Component {
     const { movie, onBackClick } = this.props;
 
     return (
+      <Container>
       <div className="movie-view">
         <div className="movie-poster">
           <img src={movie.ImagePath} />
+          <p></p>
         </div>
         <div className="movie-title">
-          <span className="label">Title: </span>
-          <span className="value">{movie.Title}</span>
+          <span className="label"></span>
+          <h1 className="value text-uppercase font-weight-bold">{movie.Title}</h1>
         </div>
         <div className="movie-genre">
-           <span className="label">Genre: </span>
+           <span className="label text-uppercase font-weight-bold text-muted">Genre </span>
            <span className="value">{movie.Genre.Name}</span>
-        </div>
-        <div className="movie-director">
-          <span className="label">Director: </span>
+           <span>  |  </span>
+           <span className="label text-uppercase font-weight-bold text-muted">Director </span>
           <span className="value">{movie.Director.Name}</span>
-          </div>
+          <p></p>
+        </div>
         <div className="movie-description">
-          <span className="label">Description: </span>
+          <span className="label"></span>
           <span className="value">{movie.Description}</span>
         </div>
-        <Button variant="primary" onClick={() => { onBackClick(null); }}>Back</Button>
+        <p></p>
+        <div className="btn-toolbar">
+        <Button className="text-uppercase font-weight-bold" variant="primary" onClick={() => { onBackClick(null); }}>Add To Favorites</Button>
+        <Button className="text-uppercase font-weight-bold mx-3" variant="primary" onClick={() => { onBackClick(null); }}>Back To Movies</Button>
+        </div>
+        </div>
+        </Container>
 
-      </div>
+  
     );
   }
 }

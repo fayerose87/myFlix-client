@@ -1,8 +1,14 @@
 :root {
   --primary-color: #1e81b0;
-  --secondary-color: #474848;
+  --primary-color-lighter: #78b3cf;
+  --secondary-color: #282828;
   --black: #000;
+  --white: #FFF;
+  --gray: rgba(255,255,255,.5);
 }
+
+::-moz-selection { background: var(--white); }
+::selection { background: var(--white); }
 
 * {
   -webkit-box-sizing: border-box;
@@ -10,8 +16,8 @@
 }
 
 body, html {
-  background-image: linear-gradient(var(--black), var(--secondary-color));
-  height: 100%;
+  background-image: linear-gradient(var(--secondary-color), var(--black));
+  min-height: 100%;
 }
 
 
@@ -19,7 +25,12 @@ body, html {
   color: #FFF;
 }
 
-.btn {
+.btn-primary {
   background-color: var(--primary-color) !important;
   border: none !important;
+}
+
+.btn-outline-light {
+  color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
 }

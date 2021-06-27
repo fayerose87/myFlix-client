@@ -27,7 +27,7 @@ export function LoginView(props) {
 
        <div className="Login">
         <Form>
-          <h2>Sign In</h2>
+          <h2>Log into your myFlix account.</h2>
           <div className="form-group">
              <Form.Group className="mb-3" controlId="formUsername">
                <Form.Label>Username:</Form.Label>

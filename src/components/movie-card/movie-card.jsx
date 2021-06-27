@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 //Bootstrap Elements
-import { Navbar, Nav, Row, Col, Form, FormControl, Button, Container } from 'react-bootstrap'
+import { Navbar, Nav, Row, Col, Form, FormControl, Button, Container, Card } from 'react-bootstrap'
 
 import './movie-card.scss';
 
@@ -11,13 +11,13 @@ export class MovieCard extends React.Component {
     const { movie, onMovieClick } = this.props;
 
     return (
-      <Card style={{ width: '18rem' }}>
+      <Card>
         <Card.Img variant="top" src={movie.ImagePath} />
         <Card.Body>
-          <Card.Title>{movie.Title}</Card.Title>
-          <Card.Subtitle className="mb-2 text muted">{movie.Genre.Name}</Card.Subtitle>
+          <Card.Title className="text-uppercase font-weight-bold">{movie.Title}</Card.Title>
+          <Card.Subtitle className="mb-2 text-muted font-italic">{movie.Genre.Name}</Card.Subtitle>
           <Card.Text>{movie.Description}</Card.Text>
-          <Button onClick={() => onMovieClick(movie)} variant="primary">Open</Button>
+          <Button className="text-uppercase font-weight-bold" onClick={() => onMovieClick(movie)} variant="primary">Learn More</Button>
         </Card.Body>
       </Card>
     );

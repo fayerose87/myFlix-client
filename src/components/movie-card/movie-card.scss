@@ -1,0 +1,20 @@
+.card {
+  min-width: 100%;
+  background-color: transparent !important;
+}
+
+.card-title {
+  color: var(--primary-color) !important;
+}
+
+.card-text {
+  display: block;
+  display: -webkit-box;
+  max-height: 20em;
+  line-height: 1.8em;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--gray) !important;
+}

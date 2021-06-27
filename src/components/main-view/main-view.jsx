@@ -7,7 +7,7 @@ import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 
 //Bootstrap Elements
-import { Navbar, Nav, Row, Col, Form, FormControl, Button, Container } from 'react-bootstrap'
+import { Navbar, Nav, NavDropdown, Row, Col, Form, FormControl, Button, Container } from 'react-bootstrap'
 
 import './main-view.scss';
 import Logo from 'url:~/src/images/myFlix.png';
@@ -72,20 +72,31 @@ export class MainView extends React.Component {
 
     return (
       <div>
-        <Row>
-          <Col>
-            <Navbar variant="dark">
-            <Navbar.Brand href="">
-             <img src={Logo} className="d-inline-block align-top" height="100px" width="auto" alt="myFlix logo"/>
+          <Navbar collapseOnSelect expand="lg" variant="dark" className="justify-content-between">
+          <Navbar.Brand href="/">
+             <img src={Logo} className="d-inline-block align-top" height="80px" width="auto" alt="myFlix logo"/>
             </Navbar.Brand>
-            <Nav className="me-auto">
-             <Nav.Link href="">Home</Nav.Link>
-             <Nav.Link href="">My Account</Nav.Link>
-              <Nav.Link href="">Logout</Nav.Link>
-            </Nav>
-            </Navbar>
-          </Col>
-        </Row>
+              <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+  <Navbar.Collapse id="responsive-navbar-nav">
+    <Nav className="mr-auto">
+      <Nav.Link href="#movies">Browse Movies</Nav.Link>
+      <NavDropdown title="My Account" id="collasible-nav-dropdown">
+        <NavDropdown.Item href="#action/3.1">My Favorites</NavDropdown.Item>
+        <NavDropdown.Item href="/users/:Username">Edit Profile</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.3">Logout</NavDropdown.Item>
+      </NavDropdown>
+    </Nav>
+  </Navbar.Collapse>
+  <Nav>
+    <Form inline>
+      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+      <Button variant="outline-light">Search</Button>
+    </Form>
+    </Nav>
+</Navbar>
+
+
+<Container fluid>
         
         <Row className="main-view justify-content-md-center">
          {selectedMovie
@@ -95,13 +106,14 @@ export class MainView extends React.Component {
            </Col>
             )
             : movies.map(movie => (
-              <Col md={3}>
+              <Col md={4}>
                 <MovieCard key={movie._id} movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
               </Col>
             ))
           }
         </Row>
       );
+      </Container>
      </div>
     );
   }

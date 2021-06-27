@@ -29,7 +29,7 @@ export function RegistrationView(props) {
 
     <div className="Register">
     <Form>
-      <h2>Register</h2>
+      <h2>Let's create your myFlix account.</h2>
       <div className="form-group">
       <Form.Group className="mb-3" controlId="formUsername">
         <Form.Label>Username:</Form.Label>
