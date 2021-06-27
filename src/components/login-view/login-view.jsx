@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 //Bootstrap Elements
-import { Navbar, Nav, Row, Col, Form, FormControl, Button, Container } from 'react-bootstrap'
+import { Form, Button } from 'react-bootstrap'
 
 import './login-view.scss';
 import Logo from 'url:~/src/images/myFlix.png';
