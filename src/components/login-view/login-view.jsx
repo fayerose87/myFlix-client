@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import PropTypes from 'prop-types';
 
 //Bootstrap Elements
@@ -13,10 +14,18 @@ export function LoginView(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username, password);
     /* Send a request to the server for authentication */
-    /* then call props.onLoggedIn(username) */
-    props.onLoggedIn(username);
+    axios.post('https://fayes-flix.herokuapp.com/login', {
+      Username: username,
+      Password: password
+    })
+    .then(reponse => {
+      const data = reponse.data;
+      props.onLoggedIn(data);
+    })
+    .catch(e => {
+      console.log('no such user')
+    });
   };
 
   return (
@@ -47,3 +56,11 @@ export function LoginView(props) {
     </div>
   );
 }
+
+//LoginView.propTypes = {
+//  user: PropTypes.shape({
+//      Username: PropTypes.string.isRequired,
+//      Password: PropTypes.string.isRequired
+//  }),
+//  onLoggedIn: PropTypes.func
+//};
