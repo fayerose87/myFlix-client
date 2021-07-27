@@ -2,6 +2,27 @@
   color: var(--primary-color);
 }
 
-.movie-genre, .movie-description, .movie-director {
+.movie-genre, .movie-description, .movie-director, .card-subtitle {
   color: var(--gray);
+}
+
+a {
+  color: var(--primary-color) !important;
+}
+
+ a:hover {
+  text-decoration: none !important;
+}
+
+.movie-poster {
+  float: left;
+  padding-right: 2rem;
+}
+
+@media only screen and (max-width: 600px) {
+  /* For mobile phones: */
+ .movie-poster {
+   padding-bottom: 1rem;
+   min-width: 100% !important;
+  }
 }

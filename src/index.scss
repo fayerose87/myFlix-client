@@ -7,13 +7,13 @@
   --gray: rgba(255,255,255,.5);
 }
 
-::-moz-selection { background: var(--white); }
-::selection { background: var(--white); }
-
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
+
+::-moz-selection { background: var(--white); }
+::selection { background: var(--white); }
 
 body, html {
   background-image: linear-gradient(var(--secondary-color), var(--black));
@@ -33,4 +33,16 @@ body, html {
 .btn-outline-light {
   color: var(--primary-color) !important;
   border-color: var(--primary-color) !important;
+}
+
+.p {
+  color: var(--gray) !important;
+}
+
+h1 {
+  color: var(--primary-color) !important;
+}
+
+h2 {
+  color: var(--gray) !important;
 }

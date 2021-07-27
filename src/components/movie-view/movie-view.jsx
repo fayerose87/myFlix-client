@@ -1,12 +1,37 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import { Link } from "react-router-dom";
+import axios from "axios";
+
 //Bootstrap Elements
 import { Button, Container } from "react-bootstrap";
 
 import "./movie-view.scss";
 
 export class MovieView extends React.Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
+
+  addFavorite(movie) {
+    const token = localStorage.getItem("token");
+    const user = localStorage.getItem("user");
+    axios
+      .post(
+        `https://fayes-flix.herokuapp.com/users/${user}` +
+          "/movies/" +
+          this.props.movie._id,
+        {},
+        { headers: { Authorization: `Bearer ${token}` } }
+      )
+      .then((response) => {
+        console.log(response);
+        alert(this.props.movie.Title + " has been added to your favorites!");
+      });
+  }
+
   render() {
     const { movie, onBackClick } = this.props;
 
@@ -15,24 +40,25 @@ export class MovieView extends React.Component {
         <div className="movie-view">
           <div className="movie-poster">
             <img src={movie.ImagePath} />
-            <p></p>
           </div>
           <div className="movie-title">
             <span className="label"></span>
-            <h1 className="value text-uppercase font-weight-bold">
-              {movie.Title}
-            </h1>
+            <h1 className="value">{movie.Title}</h1>
           </div>
           <div className="movie-genre">
             <span className="label text-uppercase font-weight-bold text-muted">
               Genre{" "}
             </span>
-            <span className="value">{movie.Genre.Name}</span>
+            <Link className="link" to={`/genre/${movie.Genre.Name}`}>
+              <span className="value">{movie.Genre.Name}</span>
+            </Link>
             <span> | </span>
             <span className="label text-uppercase font-weight-bold text-muted">
               Director{" "}
             </span>
-            <span className="value">{movie.Director.Name}</span>
+            <Link className="link" to={`/director/${movie.Director.Name}`}>
+              <span className="value">{movie.Director.Name}</span>
+            </Link>
             <p></p>
           </div>
           <div className="movie-description">
@@ -42,22 +68,20 @@ export class MovieView extends React.Component {
           <p></p>
           <div className="btn-toolbar">
             <Button
-              className="text-uppercase font-weight-bold"
+              className="favorite-btn font-weight-bold mr-3"
               variant="primary"
-              onClick={() => {
-                onBackClick(null);
-              }}
+              onClick={() => this.addFavorite(movie)}
             >
-              Add To Favorites
+              + Add To Favorites
             </Button>
             <Button
-              className="text-uppercase font-weight-bold mx-3"
+              className="back-button font-weight-bold"
               variant="primary"
               onClick={() => {
                 onBackClick(null);
               }}
             >
-              Back To Movies
+              Back
             </Button>
           </div>
         </div>
@@ -78,5 +102,5 @@ MovieView.propTypes = {
       Name: PropTypes.string.isRequired,
     }),
   }).isRequired,
-  onMovieClick: PropTypes.func.isRequired,
+  onBackClick: PropTypes.func.isRequired,
 };

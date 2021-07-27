@@ -5,16 +5,25 @@
 
 .card-title {
   color: var(--primary-color) !important;
-}
-
-.card-text {
   display: block;
   display: -webkit-box;
-  max-height: 20em;
-  line-height: 1.8em;
-  -webkit-line-clamp: 6;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: var(--gray) !important;
+}
+
+.card-text {
+  color: var(--white) !important;
+  display: block;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.card-body {
+  padding: 1rem !important;
 }
