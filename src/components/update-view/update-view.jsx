@@ -13,6 +13,7 @@ export function UpdateView() {
   const [usernameError, setUsernameError] = useState({});
   const [emailError, setEmailError] = useState({});
   const [passwordError, setPasswordError] = useState({});
+  const [BirthdayError, setBirthdayError] = useState({});
 
   // Form validation
   const formValidation = () => {
@@ -111,6 +112,8 @@ export function UpdateView() {
             );
           })}
         </Form.Group>
+
+        
 
         <Form.Group controlId="formBirthday">
           <Form.Label>Birthday</Form.Label>
