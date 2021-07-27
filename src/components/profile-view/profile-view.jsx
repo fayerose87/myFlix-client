@@ -135,11 +135,12 @@ export class ProfileView extends React.Component {
                   You don't have any favorite movies yet!
                 </p>
               )}
+                 <CardDeck>
               {favoriteMovieList.length > 0 &&
                 favoriteMovieList.map((movie) => {
                   return (
-                    <CardDeck>
-                      <Card className="fav-card mt-2" style={{ width: "2rem" }}>
+
+                      <Card key={movie._id} className="fav-card mt-2" style={{ width: "2rem" }}>
                         <Link to={`/movies/${movie._id}`}>
                           <Card.Img id="poster" src={movie.ImagePath} />
                         </Link>
@@ -151,9 +152,11 @@ export class ProfileView extends React.Component {
                           Remove
                         </Button>
                       </Card>
-                    </CardDeck>
+
                   );
                 })}
+                </CardDeck>
+                  );
             </div>
           </Col>
         </Row>
