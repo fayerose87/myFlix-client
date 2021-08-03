@@ -5,16 +5,10 @@
 
 .card-title {
   color: var(--primary-color) !important;
-  display: block;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .card-text {
-  color: var(--white) !important;
+  color: var(--gray) !important;
   display: block;
   display: -webkit-box;
   -webkit-line-clamp: 5;
