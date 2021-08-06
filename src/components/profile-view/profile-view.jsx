@@ -10,6 +10,10 @@ import "./profile-view.scss";
 export class ProfileView extends React.Component {
   constructor() {
     super();
+    (this.Username = null),
+      (this.Password = null),
+      (this.Email = null),
+      (this.Birthday = null);
     this.state = {
       username: null,
       password: null,

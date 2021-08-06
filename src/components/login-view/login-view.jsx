@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { setUser } from "../../actions/actions";
+import PropTypes from "prop-types";
 
 //Bootstrap Elements
 import { Form, Button } from "react-bootstrap";
@@ -123,4 +124,15 @@ let mapStateToProps = (state) => {
     user: state.user,
   };
 };
+
+
+LoginView.propTypes = {
+  user: PropTypes.shape({
+    username: PropTypes.string.isRequired,
+      pasword: PropTypes.string.isRequired
+  }),
+  onLoggedIn: PropTypes.func.isRequired,
+  onRegister: PropTypes.func,
+};
+
 export default connect(mapStateToProps, { setUser })(LoginView);
