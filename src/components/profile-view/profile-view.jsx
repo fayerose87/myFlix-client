@@ -1,6 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { Button, Row, Col, Card, CardDeck } from "react-bootstrap";
+import propTypes from "prop-types";
+import { Button, Row, Col, Card, Container } from "react-bootstrap";
 
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -86,10 +86,9 @@ export class ProfileView extends React.Component {
     });
 
     return (
-      <div className="userProfile" style={{ display: "flex" }}>
-        <Row className="justify-content-md-center">
-          <Col md={12}>
-            <div>
+      <div className="userProfile">
+        <Container>
+          <Row className="justify-content-md-center">
               <h1>My Profile</h1>
               <div className="details">
                 <div className="username">
@@ -101,7 +100,6 @@ export class ProfileView extends React.Component {
                 <div className="birthday">
                   <b>Date of Birth:</b> {this.state.birthday}
                 </div>
-              </div>
             </div>
 
             <div className="btn-group mt-3">
@@ -126,20 +124,19 @@ export class ProfileView extends React.Component {
                 Delete Account
               </Button>
             </div>
+            </Row>
 
-            <div>
+            <Row className="justify-content-md-center">
               <h2 className="mb-2 mt-4">My Favorite Movies </h2>
-
               {favoriteMovieList.length === 0 && (
                 <p className="text-light">
-                  You don't have any favorite movies yet!
+                  You do not have any favorite movies yet!
                 </p>
               )}
-                 <CardDeck>
-              {favoriteMovieList.length > 0 &&
-                favoriteMovieList.map((movie) => {
-                  return (
-
+                {favoriteMovieList.length > 0 &&
+                  favoriteMovieList.map((movie) => {
+                    return (
+                      <Col sm={12} md={6}>
                       <Card key={movie._id} className="fav-card mt-2">
                         <Link to={`/movies/${movie._id}`}>
                           <Card.Img id="poster" src={movie.ImagePath} />
@@ -152,19 +149,26 @@ export class ProfileView extends React.Component {
                           Remove
                         </Button>
                       </Card>
-
-                  );
-                })}
-                </CardDeck>
-                  );
-            </div>
-          </Col>
-        </Row>
+                      </Col>
+                    );
+                  })}
+                  </Row>
+              );
+            </Container> 
       </div>
     );
   }
 }
 
 ProfileView.propTypes = {
-  movies: PropTypes.array.isRequired,
+  user: propTypes.shape({
+    FavoriteMovies: propTypes.arrayOf(
+      propTypes.shape({
+        _id: propTypes.string.isRequired,
+      })
+    ),
+    Username: propTypes.string.isRequired,
+    Email: propTypes.string.isRequired,
+    Birthday: propTypes.instanceOf(Date),
+  }),
 };
