@@ -82,7 +82,7 @@ export function RegistrationView(props) {
 
       <div className="Register">
         <Form>
-          <h2>Let's create your myFlix account.</h2>
+          <h2>Create your myFlix account.</h2>
           <div className="form-group">
             <Form.Group className="mb-3" controlId="formUsername">
               <Form.Label>Username:</Form.Label>
@@ -163,3 +163,13 @@ export function RegistrationView(props) {
     </div>
   );
 }
+
+RegistrationView.propTypes = {
+  register: PropTypes.shape({
+    Username: PropTypes.string.isRequired,
+    Password: PropTypes.string.isRequired,
+    Email: PropTypes.string.isRequired,
+    Birthday: PropTypes.date,
+  }),
+  onRegister: PropTypes.func,
+};

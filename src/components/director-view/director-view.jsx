@@ -67,8 +67,10 @@ export class DirectorView extends React.Component {
 DirectorView.propTypes = {
   director: PropTypes.shape({
     Name: PropTypes.string.isRequired,
+    ImagePath: PropTypes.string,
     Bio: PropTypes.string.isRequired,
     Birth: PropTypes.string.isRequired,
+    DirectorImage: PropTypes.string,
   }),
   onBackClick: PropTypes.func.isRequired,
 };

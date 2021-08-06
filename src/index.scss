@@ -1,6 +1,6 @@
 :root {
   --primary-color: #1e81b0;
-  --primary-color-lighter: #78b3cf;
+  --primary-color-lighter: #249ad2;
   --secondary-color: #282828;
   --black: #000;
   --white: #FFF;
@@ -25,9 +25,21 @@ body, html {
   color: var(--white);
 }
 
+.btn {
+  border-radius: .25rem !important;
+}
+
+.btn-secondary {
+  border: none !important;
+}
+
 .btn-primary {
   background-color: var(--primary-color) !important;
   border: none !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-color-lighter) !important;
 }
 
 .btn-outline-light {
