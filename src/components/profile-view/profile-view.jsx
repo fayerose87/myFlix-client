@@ -89,17 +89,17 @@ export class ProfileView extends React.Component {
       <div className="userProfile">
         <Container>
           <Row className="justify-content-md-center">
-              <h1>My Profile</h1>
-              <div className="details">
-                <div className="username">
-                  <b>Username:</b> {this.state.username}
-                </div>
-                <div className="email">
-                  <b>Email:</b> {this.state.email}
-                </div>
-                <div className="birthday">
-                  <b>Date of Birth:</b> {this.state.birthday}
-                </div>
+            <h1>My Profile</h1>
+            <div className="details">
+              <div className="username">
+                <b>Username:</b> {this.state.username}
+              </div>
+              <div className="email">
+                <b>Email:</b> {this.state.email}
+              </div>
+              <div className="birthday">
+                <b>Date of Birth:</b> {this.state.birthday}
+              </div>
             </div>
 
             <div className="btn-group mt-3">
@@ -124,37 +124,36 @@ export class ProfileView extends React.Component {
                 Delete Account
               </Button>
             </div>
-            </Row>
-
-            <Row className="justify-content-md-center">
-              <h2 className="mb-2 mt-4">My Favorite Movies </h2>
-              {favoriteMovieList.length === 0 && (
-                <p className="text-light">
-                  You do not have any favorite movies yet!
-                </p>
-              )}
-                {favoriteMovieList.length > 0 &&
-                  favoriteMovieList.map((movie) => {
-                    return (
-                      <Col sm={12} md={6}>
-                      <Card key={movie._id} className="fav-card mt-2">
-                        <Link to={`/movies/${movie._id}`}>
-                          <Card.Img id="poster" src={movie.ImagePath} />
-                        </Link>
-                        <Button
-                          className="remove font-weight-bold mt-2"
-                          id="remove"
-                          onClick={() => this.removeFavorite(movie)}
-                        >
-                          Remove
-                        </Button>
-                      </Card>
-                      </Col>
-                    );
-                  })}
-                  </Row>
-              );
-            </Container> 
+          </Row>
+          <Row className="justify-content-md-center">
+            <h2 className="mb-2 mt-4">My Favorite Movies </h2>
+            {favoriteMovieList.length === 0 && (
+              <p className="text-light">
+                You do not have any favorite movies yet!
+              </p>
+            )}
+            {favoriteMovieList.length > 0 &&
+              favoriteMovieList.map((movie) => {
+                return (
+                  <Col sm={12} md={6}>
+                    <Card key={movie._id} className="fav-card mt-2">
+                      <Link to={`/movies/${movie._id}`}>
+                        <Card.Img id="poster" src={movie.ImagePath} />
+                      </Link>
+                      <Button
+                        className="remove font-weight-bold mt-2"
+                        id="remove"
+                        onClick={() => this.removeFavorite(movie)}
+                      >
+                        Remove
+                      </Button>
+                    </Card>
+                  </Col>
+                );
+              })}
+          </Row>
+          );
+        </Container>
       </div>
     );
   }
