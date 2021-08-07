@@ -45,7 +45,7 @@ export class NavView extends React.Component {
                 <NavDropdown.Item as={Link} to={`/genre/Sci-Fi`}>
                   Sci-Fi
                 </NavDropdown.Item>
-                <NavDropdown.Item has={Link} to={`/genre/Thriller`}>
+                <NavDropdown.Item as={Link} to={`/genre/Thriller`}>
                   Thriller
                 </NavDropdown.Item>
               </NavDropdown>
