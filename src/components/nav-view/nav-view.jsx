@@ -33,7 +33,7 @@ export class NavView extends React.Component {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
               <NavDropdown title="Genres" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="/genre/Action">
+                <NavDropdown.Item as={Link} to={`/genre/Action`}>
                   Action
                 </NavDropdown.Item>
                 <NavDropdown.Item href="/genre/Drama">
