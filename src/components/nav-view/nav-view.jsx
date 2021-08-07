@@ -42,10 +42,10 @@ export class NavView extends React.Component {
                 <NavDropdown.Item as={Link} to={`/genre/Fantasy`}>
                   Fantasy
                 </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to={`//genre/Sci-Fi`}>
+                <NavDropdown.Item as={Link} to={`/genre/Sci-Fi`}>
                   Sci-Fi
                 </NavDropdown.Item>
-                <NavDropdown.Item has={Link} to={`//genre/Thriller`}>
+                <NavDropdown.Item has={Link} to={`/genre/Thriller`}>
                   Thriller
                 </NavDropdown.Item>
               </NavDropdown>
@@ -68,7 +68,7 @@ export class NavView extends React.Component {
                 <NavDropdown.Item as={Link} to={`/director/Robert%20Zemeckis`}>
                   Robert Zemeckis
                 </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to={`director/Terry%20Gilliam`}>
+                <NavDropdown.Item as={Link} to={`/director/Terry%20Gilliam`}>
                   Terry Gilliam
                 </NavDropdown.Item>
               </NavDropdown>
