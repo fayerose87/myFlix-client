@@ -36,39 +36,39 @@ export class NavView extends React.Component {
                 <NavDropdown.Item as={Link} to={`/genre/Action`}>
                   Action
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/genre/Drama">
+                <NavDropdown.Item as={Link} to={`/genre/Drama`}>
                   Drama
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/genre/Fantasy">
+                <NavDropdown.Item as={Link} to={`/genre/Fantasy`}>
                   Fantasy
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/genre/Sci-Fi">
+                <NavDropdown.Item as={Link} to={`//genre/Sci-Fi`}>
                   Sci-Fi
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/genre/Thriller">
+                <NavDropdown.Item has={Link} to={`//genre/Thriller`}>
                   Thriller
                 </NavDropdown.Item>
               </NavDropdown>
               <NavDropdown title="Directors" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="/director/Christopher%20Nolan">
+              <NavDropdown.Item as={Link} to={`/director/Christopher%20Nolan`}>
                   Christopher Nolan
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/director/David%20Fincher">
+                <NavDropdown.Item as={Link} to={`/director/David%20Fincher`}>
                   David Fincher
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/director/Frank%20Darabont">
+                <NavDropdown.Item as={Link} to={`/director/Frank%20Darabont`}>
                   Frank Darabont
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/director/Michael%20Gondry">
+                <NavDropdown.Item as={Link} to={`/director/Michael%20Gondry`}>
                   Michael Gondry
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/director/Peter%20Jackson">
+                <NavDropdown.Item as={Link} to={`/director/Peter%20Jackson`}>
                   Peter Jackson
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/director/Robert%20Zemeckis">
+                <NavDropdown.Item as={Link} to={`/director/Robert%20Zemeckis`}>
                   Robert Zemeckis
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/director/Terry%20Gilliam">
+                <NavDropdown.Item as={Link} to={`director/Terry%20Gilliam`}>
                   Terry Gilliam
                 </NavDropdown.Item>
               </NavDropdown>
