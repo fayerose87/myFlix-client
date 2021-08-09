@@ -19,6 +19,8 @@ export class NavView extends React.Component {
     this.setState({
       user: null,
     });
+    console.log("logout successful");
+    window.open("/", "_self");
   }
 
   render() {
